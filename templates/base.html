@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../static/main.js" defer></script>
+        <link rel="stylesheet" href="../static/main.css">
+        <title>MetalHeaders (admin) - {% block title %}{% endblock %}</title>
+    </head>
+
+    <body>
+        <ul>
+            <li><a href="/">Shows</a></li>
+            <li><a href="/users">Users</a></li>
+            <li><a href="/bands">Bands</a></li>
+            <li><a href="/venues">Venues</a></li>
+            
+        </ul>
+        <header>
+        <h1>MetalHeaders</h1>
+        <h2>{% block page_title %}{% endblock %}</h2>
+        </header>
+        {% block body %}
+        {% endblock %}
+        <footer>
+            <h3>all right reserved to satan</h3>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Bands{% endblock %}
+{% block page_title %}Edit Bands{% endblock %}
+{% block body %}
+<header>
+
+<p class="total">Bands in total : {{ amount }}</p>
+<h2 class="arc">Add to Archive</h2>
+</header>
+<div class="center">
+    <div class="form">
+        <form method="POST" enctype="multipart/form-data">
+        <label for="band">Enter band name</label>
+        <input type="text" name="band" style="margin: 10px;">
+        <br><br>
+        <span> * </span><label class="custom-file-upload">
+            <input type="file" accept="image/png, image/jpeg, image/webp" name="image"/>
+            Upload image
+        </label>
+        <br><br><br>
+        <input type="submit" value="Add">
+    </form>
+    {% with message = get_flashed_messages() %}
+    {% if message %}
+    <p style="color: brown;">{{ message[0] }}</p>
+    {% endif %}
+  {% endwith %}
+    </div>
+        <div class="list">
+        <br>
+    <table style="margin: auto; ">
+        <tr>
+            <th>ID</th><th>Name</th><th>Images</th><th>Actions</th>
+        </tr>
+        {% for band in bands %}
+        {% if band.img != 'None' %}
+        <tr>
+            <td>{{ band.id }}</td><td>{{ band.name }}</td><td><a href="static\images\{{ band.img }}">File</a></td><td><a href="bands/remove={{ band.name }}">Remove</a> / <a href="/bands/add_image={{ band.id }}">Update Image</a></td>
+        </tr>
+        {% else %}
+        <tr>
+            <td>{{ band.id }}</td><td>{{ band.name }}</td><td>None</td><td><a href="bands/remove={{ band.name }}">Remove</a> / <a href="/bands/add_image={{ band.id }}">Add Image</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+ </div>
+</div>
+{% endblock %}
+    

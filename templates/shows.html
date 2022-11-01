@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}Shows{% endblock %}
+{% block page_title %}Edit Shows{% endblock %}
+{% block body %}
+<header>
+<h3><a id="sort">Sort By Date</a></h3>
+<p class="total">Shows in total : {{ amount }}</p>
+<h2 class="arc">Add to Archive</h2>
+</header>
+<div class="center">
+    <div class="form">
+        <form method="POST">
+            <label for="band">Select Band </label>
+        <select name="band" id="band">
+            <option value="" selected disabled hidden>...</option>
+            {% for band in bands %}
+            <option value="{{ band.name }}">{{ band.name }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="venue">Select Venue </label>
+        <select name="venue" id="venue">
+            <option value="" selected disabled hidden>...</option>
+            {% for v in venues %}
+            <option value="{{ v.name }} - {{ v.city }}">{{ v.name }} - {{ v.city }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="date">Select Date</label>
+        <input type="date" name="date">
+        <br><br>
+        <label for="time">Select Time</label>
+        <input type="time" name="time">
+        <br><br>
+        <label for="price">Insert Price (In ILS)</label>
+        <input type="number" name="price" min="0" value="0" style="width: 50px;">
+        <br><br>
+        <input type="submit" value="Add">
+        <br><br>
+        
+    </form>
+    {% with message = get_flashed_messages() %}
+    {% if message %}
+    <p style="color: brown;">{{ message[0] }}</p>
+    {% endif %}
+  {% endwith %}
+    </div>
+        <div class="list">
+        <br>
+    <table style="margin: auto; ">
+        <tr>
+            <th>ID</th><th>Band</th><th>Venue</th><th>Date</th><th>Time</th><th>Price</th><th>Actions</th>
+        </tr>
+        {% for show in shows %}
+        <tr>
+            <td>{{ show.id }}</td><td>{{ show.band }}</td><td>{{ show.venue }}</td><td>{{ show.date }}</td><td>{{ show.time }}</td><td>{{ show.price }}₪</td><td><a href="/edit={{ show.id }}">Edit</a> / <a href="/remove={{ show.id }}">Remove</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+ </div>
+</div>
+{% endblock %}
+    

@@ -1,0 +1,134 @@
+html{
+    background-color: #030217f1;
+    color: aliceblue;
+}
+header h1{ 
+    text-align: center;
+    color: brown;
+    font-style: italic;
+    background-color: #030217a1;
+    text-shadow: #030217e2;
+    font-size: 50px;
+    border-bottom-style: outset;
+    border-top-style: outset;
+    margin-top: auto;
+    padding: 0px;
+
+}
+
+body{
+    margin: 3px;
+    padding: 20px;
+    border-style: outset;
+    font-family: 'Times New Roman';
+    background-color: #050327f1;
+    
+    
+    
+
+
+}
+
+header {
+    text-align: center;
+}
+header h2{
+    text-align: center;
+    font-size: 30px;
+
+}
+header h3{
+    text-align: center;
+}
+div.center{
+    margin: auto;
+    text-align: center;
+    padding: 50px;
+    padding-top: 30px;
+}
+table {
+    text-align: center;
+
+}
+th {
+    text-align: center;
+    font-size: larger;
+    color: brown;
+    padding: 5px;
+}
+td {
+    padding: 10px;
+} 
+th, td {
+    border: 1px solid;
+}
+
+footer {
+    color:black;
+    text-align: center;
+}
+
+a {
+    color: brown;
+    text-decoration: dotted;
+}
+a:hover {
+    color: red;
+}
+
+input[type = submit] {
+    background-color: rgb(22, 21, 21);
+    padding: 6px 15px;
+    border: 1px solid;
+    color: white;
+    cursor: pointer;
+ }
+ input[type = submit]:hover {
+    color: brown;
+
+ }
+ input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+a#sort:hover {
+    cursor: pointer;
+}
+
+   /* NAV BAR  */
+li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-style: double;
+  }
+  
+  li a:hover {
+    background-color: #4702466b;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-style: double;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(53, 0, 40, 0.436);
+    font-style: italic;
+  }

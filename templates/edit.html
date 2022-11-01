@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Shows{% endblock %}
+{% block page_title %}Edit Shows{% endblock %}
+{% block body %}
+<header>
+<h3 style="color: brown;">Show {{ show.id }}</h3>
+<h2 class="arc">Update</h2>
+</header>
+<div class="center">
+    <div class="form">
+        <form method="POST">
+            <label for="band">Select Band </label>
+        <select name="band" id="band">
+            {% for band in bands %}
+            {% if show.band == band.name %}
+            <option value="{{ show.band }}" selected>{{ show.band }}</option>
+            {% else %}
+            <option value="{{ band.name }}">{{ band.name }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="venue">Select Venue </label>
+        <select name="venue" id="venue">
+            <option value="" selected disabled hidden>...</option>
+            {% for v in venues %}
+            {% if v.name == show.venue %}
+            <option value="{{ v.name }} - {{ v.city }}" selected>{{ v.name }} - {{ v.city }}</option>
+            {% else %}
+            <option value="{{ v.name }} - {{ v.city }}">{{ v.name }} - {{ v.city }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="date">Select Date</label>
+        <input type="date" name="date" value="{{ show.date }}">
+        <br><br>
+        <label for="time">Select Time</label>
+        <input type="time" name="time" value="{{ show.time }}">
+        <br><br>
+        <label for="price">Enter Price</label>
+        <input type="number" name="price" min="0" style="width: 50px;" value="{{ show.price }}">
+        <br><br>
+        <input type="submit" value="Update">
+    </form>
+    {% endblock %}

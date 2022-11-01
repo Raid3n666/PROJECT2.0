@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}Venues{% endblock %}
+{% block page_title %}Edit Venues{% endblock %}
+{% block body %}
+<header>
+
+<p class="total">Venues in total : {{ amount }}</p>
+<h2 class="arc">Add to Archive</h2>
+</header>
+<div class="center">
+    <div class="form">
+        <form method="POST">
+        <label for="band">Enter venue name</label><br>
+        <input type="text" name="name" style="margin: 10px;">
+        <br>
+        <label for="city">City</label><br>
+        <select name="city" id="city" style="margin: 10px;">
+            {% for city in cities %}
+            {% if city == 'Tel Aviv' %}
+            <option value="Tel Aviv" selected>Tel Aviv</option>
+            {% else %}
+            <option value="{{ city }}">{{city}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="Add">
+    </form>
+    {% with message = get_flashed_messages() %}
+    {% if message %}
+    <p style="color: brown;">{{ message[0] }}</p>
+    {% endif %}
+  {% endwith %}
+    </div>
+        <div class="list">
+        <br>
+    <table style="margin: auto; ">
+        <tr>
+            <th>ID</th><th>Name</th><th>City</th><th>Actions</th>
+        </tr>
+        {% for i in venues %}
+        <tr>
+            <td>{{ i.id }}</td><td>{{ i.name }}</td><td>{{ i.city }}</td><td><a href="/venues/remove={{ i.name }}&{{ i.city }}">Remove</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+ </div>
+</div>
+{% endblock %}
+    
