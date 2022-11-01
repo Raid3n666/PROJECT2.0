@@ -41,10 +41,10 @@ def index():
             shows = dal.show_objects()
             amount = len(shows)
             flash(msg)
+            return redirect(url_for('index'))
         except:
             flash('FILL ALL FIELDS')
             return redirect(url_for('index'))
-        return render_template('shows.html', bands = bands, venues = venues, shows = shows, amount = amount)
 
 
 @app.route('/users')

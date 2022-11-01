@@ -53,7 +53,7 @@
         </tr>
         {% for show in shows %}
         <tr>
-            <td>{{ show.id }}</td><td>{{ show.band }}</td><td>{{ show.venue }}</td><td>{{ show.date }}</td><td>{{ show.time }}</td><td>{{ show.price }}₪</td><td><a href="/edit={{ show.id }}">Edit</a> / <a href="/remove={{ show.id }}">Remove</a></td>
+            <td>{{ show.id }}</td><td>{{ show.band }}</td><td>{{ show.venue }}</td><td>{{ show.date }}</td><td>{{ show.time }}</td><td class="price">{{ show.price }}₪</td><td><a href="/edit={{ show.id }}">Edit</a> / <a href="/remove={{ show.id }}">Remove</a></td>
         </tr>
         {% endfor %}
     </table>
