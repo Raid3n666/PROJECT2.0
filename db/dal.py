@@ -123,7 +123,7 @@ class Venue:
 
 class Show:
 
-    def __init__(self, id, band, venue, date, time, price) -> None:
+    def __init__(self, id = None, band= None, venue= None, date = None, time = None, price = None) -> None:
         self.id = id
         self.band = band
         self.venue = venue
@@ -132,7 +132,7 @@ class Show:
         self.price = price
     
     def all_shows(self):
-        cur.execute('SELECT bands, venue, date, time, price FROM shows')
+        cur.execute('SELECT bands, venue, date FROM shows')
         res = cur.fetchall()
         shows = list(res)
         return shows
@@ -163,7 +163,7 @@ class Show:
             return False
     
     def edit(self, new_band, new_venue, new_date, new_time, new_price):
-        if (new_band, new_venue, new_date, new_time, new_price) not in self.all_shows():
+        if (new_band, new_venue, new_date) not in self.all_shows():
             cur.execute(f'UPDATE shows SET bands = "{new_band}", venue = "{new_venue}", date = "{new_date}", time = "{new_time}", price = {new_price} WHERE id = "{self.id}"')
             con.commit()
             return True
