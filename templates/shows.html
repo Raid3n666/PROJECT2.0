@@ -8,10 +8,13 @@
 <h2 class="arc">Add to Archive</h2>
 </header>
 <div class="center">
+    <input type="text" id="searchInput" placeholder="Enter search keywords..." onkeyup="searchTable()"><br><br>
+    <button id="add-form" class="add-form" onclick="showFormBlock()">Add New Show</button>
     <div class="form">
+        <button class="close" onclick="closeForm()">X</button>
         <form method="POST">
             <label for="band">Select Band </label>
-        <select name="band" id="band">
+        <select name="band" id="band" required>
             <option value="" selected disabled hidden>...</option>
             {% for band in bands %}
             <option value="{{ band.name }}">{{ band.name }}</option>
@@ -19,7 +22,7 @@
         </select>
         <br><br>
         <label for="venue">Select Venue </label>
-        <select name="venue" id="venue">
+        <select name="venue" id="venue" required>
             <option value="" selected disabled hidden>...</option>
             {% for v in venues %}
             <option value="{{ v.name }} - {{ v.city }}">{{ v.name }} - {{ v.city }}</option>
@@ -27,33 +30,35 @@
         </select>
         <br><br>
         <label for="date">Select Date</label>
-        <input type="date" name="date">
+        <input type="date" name="date" required>
         <br><br>
         <label for="time">Select Time</label>
-        <input type="time" name="time">
+        <input type="time" name="time" required>
         <br><br>
         <label for="price">Insert Price (In ILS)</label>
-        <input type="number" name="price" min="0" value="0" style="width: 50px;">
+        <input type="number" name="price" min="0" value="0" style="width: 50px;" required>
+        <br><br>
+        <label for="description">Add Description</label><br><br>
+        <textarea name="description" id="description" cols="30" rows="5" required></textarea>
         <br><br>
         <input type="submit" value="Add">
-        <br><br>
         
-    </form>
-    {% with message = get_flashed_messages() %}
-    {% if message %}
-    <p style="color: brown;">{{ message[0] }}</p>
-    {% endif %}
-  {% endwith %}
+        </form>
     </div>
+        {% with message = get_flashed_messages() %}
+        {% if message %}
+        <p style="color: brown;">{{ message[0] }}</p>
+        {% endif %}
+        {% endwith %}
         <div class="list">
         <br>
     <table style="margin: auto; ">
         <tr>
-            <th>ID</th><th>Band</th><th>Venue</th><th>Date</th><th>Time</th><th>Price</th><th>Actions</th>
+            <th>ID</th><th>Band</th><th>Venue</th><th>Date</th><th>Time</th><th>Price</th><th>Likes</th><th>Actions</th>
         </tr>
         {% for show in shows %}
         <tr>
-            <td>{{ show.id }}</td><td>{{ show.band }}</td><td>{{ show.venue }}</td><td>{{ show.date }}</td><td>{{ show.time }}</td><td class="price">{{ show.price }}₪</td><td><a href="/edit={{ show.id }}">Edit</a> / <a href="/remove={{ show.id }}">Remove</a></td>
+            <td>{{ show.id }}</td><td>{{ show.band }}</td><td>{{ show.venue }}</td><td>{{ show.date.strftime('%d/%m/%Y') }}</td><td>{{ show.time.strftime('%H:%M') }}</td><td class="price">{{ show.price }}₪</td><td>{{ show.likes }}</td><td><a href="/edit={{ show.id }}">Edit</a> / <a href="/remove={{ show.id }}">Remove</a></td>
         </tr>
         {% endfor %}
     </table>

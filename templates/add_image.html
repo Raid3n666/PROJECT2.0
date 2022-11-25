@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Bands{% endblock %}
+{% block page_title %}Edit Bands{% endblock %}
+{% block body %}
+<div class="center">
+    <form method="POST" enctype="multipart/form-data">
+    <span> * </span><label class="custom-file-upload">
+        <input type="file" accept="image/png, image/jpeg, image/webp" name="image" required/>
+        Upload image
+    </label><br><br>
+    <input type="submit" value="Add">
+    </form>
+</div>
+
+{% endblock %}

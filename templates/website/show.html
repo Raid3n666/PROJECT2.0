@@ -1,0 +1,78 @@
+{% extends '/website/base2.html' %}
+{% block body %}
+    <h2 class="page-title">UPCOMING FEATURES</h2>
+    <div class="content">
+        <div class="show-content">
+                <div class="band-image">
+                    <img src="../../static/images/{{show.img}}" alt="">
+                </div>
+            <h3>{{show.band}}</h3>
+            <h3>At</h3>
+            <h3 style="font-family: sans-serif; font-size:30px;">{{show.venue}}</h3>
+            <h4>{{show.date.strftime('%d/%m/%Y')}}</h4>
+            <h4>{{show.time.strftime('%H:%M')}}</h4>
+
+            <hr>
+
+            <div class="descripton">
+                <h3 class="desc">Descripton</h3>
+                    <p>{{show.description}}</p>
+            </div>
+
+            <hr>
+            <div class="buttons" style="top: 0px;">
+                {% if show.id in likes %}
+                <button class="like" style="border-bottom-left-radius: 9px;" onclick="unlike({{show.id}}, {{current_user.id}})" id="l{{show.id}}">
+                    <img src="../../static/icons/redheart.png" alt="" class="like">
+                    <div style="color:white; position:relative; bottom:42px;">{{show.likes}}</div>
+                </button>
+                {% else %}
+                <button class="like" style="border-bottom-left-radius: 9px;" onclick="like({{show.id}}, {{current_user.id}})" id="l{{show.id}}">
+                    <img src="../../static/icons/heart.png" alt="" class="like">
+                    <div style="color:white; position:relative; bottom:42px;">{{show.likes}}</div>
+                </button>
+                {% endif %}
+                {% if show.id in stars %}
+                <button class="star" style="border-bottom-right-radius: 9px;" id="s{{show.id}}" onclick="unstar({{show.id}}, {{current_user.id}})">
+                    <img src="../../static/icons/yellowstar.png" alt="" class="star">
+                </button>
+                {% else %}
+                <button class="star" style="border-bottom-right-radius: 9px;" id="s{{show.id}}" onclick="star({{show.id}}, {{current_user.id}})">
+                    <img src="../../static/icons/star.png" alt="" class="star">
+                </button>
+                {% endif %}
+            </div>
+
+            <hr>
+
+            <div class="comments">
+                <h3 class="desc">Comments</h3>
+                <div class="add-comment">
+                    <img src="../../static/images/profile_pictures/{{current_user.profile_pic}}" alt="">
+                    <div class="form">
+                        <form method="POST" id="post-comment">
+                            <textarea name="comment" id="write-comment" placeholder="Write comment..." onkeyup="enableSubmit()"></textarea>
+                            <input type="submit" value="Post" class="submit" id="submit" disabled>
+                        </form>
+                    </div>
+                </div>
+                {% for comment in comments %}
+                {% if comment.id in comment_likes %}
+                <div class="comment">
+                    <img src="../../static/images/profile_pictures/{{comment.profile_picture}}" alt="">
+                    <div id="comment"><div id="username">{{comment.username}} <span style="color: rgb(59, 55, 55);">{{comment.date}}</span></div><p id="comment-content">{{comment.content}}</p></div>
+                    <button id="l{{comment.id}}" class="like" style="border-radius: 8px; width:40px; height:40px;" onclick="unlikeComment({{current_user.id}}, {{comment.id}})"><img id="i{{comment.id}}" src="../../static/icons/redheart.png" alt="" class="heart" style="right:4px;"><span id="span{{comment.id}}">{{comment.likes}}</span></button>
+                </div>
+                {% else %}
+                <div class="comment">
+                    <img src="../../static/images/profile_pictures/{{comment.profile_picture}}" alt="">
+                    <div id="comment"><div id="username">{{comment.username}} <span style="color: rgb(59, 55, 55);">{{comment.date}}</span></div><p id="comment-content">{{comment.content}}</p></div>
+                    <button id="l{{comment.id}}" class="like" style="border-radius: 8px; width:40px; height:40px;" onclick="likeComment({{current_user.id}}, {{comment.id}})"><img id="i{{comment.id}}" src="../../static/icons/heart.png" alt="" class="heart" style="right:4px;"><span id="span{{comment.id}}">{{comment.likes}}</span></button>
+                </div>
+                {% endif %}
+                {% endfor %}
+                
+            </div>
+        </div>
+</div>
+{% endblock %}

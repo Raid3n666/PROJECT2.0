@@ -15,7 +15,8 @@
             
         </ul>
         <header>
-        <h1>MetalHeaders</h1>
+        <h2 class="admin-nav"><a href="{{url_for('website')}}">Go To Website</a></h2>
+        <h1><a href="{{url_for('index')}}">MetalHeaders</a></h1>
         <h2>{% block page_title %}{% endblock %}</h2>
         </header>
         {% block body %}

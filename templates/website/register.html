@@ -1,0 +1,24 @@
+{% extends '/website/base2.html' %}
+{% block body %}
+<br><br>
+    <div id="register">
+        <h3>Register</h3>
+        <div id="form">
+        <form method="POST" class="register" enctype="multipart/form-data">
+            <input type="email" id="email" placeholder="Enter Email.." name="email" required maxlength="50"><br>
+            <input type="text" id="username" placeholder="Enter Username..." minlength="6" maxlength="15" name="username" required><br>
+            <input type="password" minlength="6" maxlength="15" id="password" placeholder="Enter Password..." name="password" required><br>
+            <label for="image" style="color: white;">Select a profile picture</label>
+            <input type="file" name="profile_picture" id="image" style="color: white;" accept="image/png, image/jpeg"><br><br>
+            <input type="submit" value="Enter" style="width: 60px; height:30px; display:block;">
+        </form>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+      <p>{{ messages[0] }}</p>
+        {% endif %}
+        {% endwith %}
+    
+        <p>Already have an account ? <a href="{{url_for('login')}}">Login</a></p>
+    </div>
+    </div>
+{% endblock %}

@@ -8,10 +8,13 @@
 <h2 class="arc">Add to Archive</h2>
 </header>
 <div class="center">
+    <input type="text" id="searchInput" placeholder="Enter search keywords..." onkeyup="searchTable()"><br><br>
+    <button class="add-form" onclick="showFormBlock()">Add New Venue</button>
     <div class="form">
+        <button class="close" onclick="closeForm()">X</button>
         <form method="POST">
         <label for="band">Enter venue name</label><br>
-        <input type="text" name="name" style="margin: 10px;">
+        <input type="text" name="name" style="margin: 10px;" required>
         <br>
         <label for="city">City</label><br>
         <select name="city" id="city" style="margin: 10px;">
@@ -27,12 +30,12 @@
         <br>
         <input type="submit" value="Add">
     </form>
+    </div>
     {% with message = get_flashed_messages() %}
     {% if message %}
     <p style="color: brown;">{{ message[0] }}</p>
     {% endif %}
-  {% endwith %}
-    </div>
+    {% endwith %}
         <div class="list">
         <br>
     <table style="margin: auto; ">
@@ -41,7 +44,7 @@
         </tr>
         {% for i in venues %}
         <tr>
-            <td>{{ i.id }}</td><td>{{ i.name }}</td><td>{{ i.city }}</td><td><a href="/venues/remove={{ i.name }}&{{ i.city }}">Remove</a></td>
+            <td>{{ i.id }}</td><td>{{ i.name }}</td><td>{{ i.city }}</td><td><a href="/venues/remove={{ i.id }}">Remove</a></td>
         </tr>
         {% endfor %}
 

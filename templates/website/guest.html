@@ -1,0 +1,27 @@
+{% extends '/website/base2.html' %}
+{% block body %}
+    <h2 class="page-title">UPCOMING FEATURES</h2>
+    <div class="container">
+        {% for show in shows %}
+        <div class="show" style="background-image: url(/static/images/{{show.img}});">
+            <h2 class="band" onclick="window.location = '/redirect_guest2'">{{show['band']}}</h2>
+            <div class="info" onclick="window.location = '/redirect_guest2'">
+                <p>At {{show.venue}}</p>
+                <p>{{show.date.strftime('%d/%m/%Y')}}</p>
+                <p>{{show.time.strftime('%H:%M')}}</p>
+            </div>
+            <div class="buttons">
+                <button class="like" style="border-bottom-left-radius: 9px;" onclick="window.location = '/redirect_guest'" id="l{{show.id}}">
+                    <img src="../static/icons/heart.png" alt="" class="like">
+                    <span style="color:white; position:relative; bottom:42px;">{{show.likes}}</span></button>
+
+                <button class="star" style="border-bottom-right-radius: 9px;" id="s{{show.id}}" onclick="window.location = '/redirect_guest'">
+                    <img src="../static/icons/star.png" alt="" class="star">
+                </button>
+
+
+            </div>
+        </div>
+        {% endfor %}
+{% endblock %}
+ 

@@ -1,0 +1,44 @@
+{% extends '/website/base2.html' %}
+{% block body %}
+    <h2 class="page-title">UPCOMING FEATURES</h2>
+    <div class="search-form">
+        <form action="/website/search" class="search-form">
+            <input type="text" name="band" placeholder="Search for bands..." required onkeyup="enableSearch()">
+            <input type="submit" value="Search" disabled>
+        </form>
+        <p style="margin: auto; width: fit-content">{{ get_flashed_messages()[-1] }}</p>
+    </div>
+    <div class="container">
+        {% for show in shows %}
+        <div class="show" style="background-image: url(/static/images/{{show.img}});">
+            <h2 class="band" onclick="window.location = '/website/show/{{show.id}}'">{{show['band']}}</h2>
+            <div class="info" onclick="window.location = '/website/show/{{show.id}}'">
+                <p>At {{show.venue}}</p>
+                <p>{{show.date.strftime('%d/%m/%Y')}}</p>
+                <p>{{show.time.strftime('%H:%M')}}</p>
+            </div>
+            <div class="buttons">
+                {% if show.id in likes %}
+                <button class="like" style="border-bottom-left-radius: 9px;" onclick="unlike({{show.id}}, {{current_user.id}})" id="l{{show.id}}">
+                    <img src="../static/icons/redheart.png" alt="" class="like">
+                    <span style="color:white; position:relative; bottom:42px;">{{show.likes}}</span></button>
+                {% else %}
+                <button class="like" style="border-bottom-left-radius: 9px;" onclick="like({{show.id}}, {{current_user.id}})" id="l{{show.id}}">
+                    <img src="../static/icons/heart.png" alt="" class="like">
+                    <span style="color:white; position:relative; bottom:42px;">{{show.likes}}</span></button>
+                {% endif %}
+                {% if show.id in stars %}
+                <button class="star" style="border-bottom-right-radius: 9px;" id="s{{show.id}}" onclick="unstar({{show.id}}, {{current_user.id}})">
+                    <img src="../static/icons/yellowstar.png" alt="" class="star">
+                </button>
+                {% else %}
+                <button class="star" style="border-bottom-right-radius: 9px;" id="s{{show.id}}" onclick="star({{show.id}}, {{current_user.id}})">
+                    <img src="../static/icons/star.png" alt="" class="star">
+                </button>
+                {% endif %}
+
+            </div>
+        </div>
+        {% endfor %}
+{% endblock %}
+ 

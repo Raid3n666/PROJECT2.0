@@ -2,24 +2,27 @@
 {% block title %}Users{% endblock %}
 {% block page_title %}Edit Users{% endblock %}
 {% block body %}
-<!-- <header>
-    <p class="total">Users in total : {{ amount }}</p>
-    </header>
     <div class="center">
+    <p class="total">Users in total: {{amount}}</p>
+        <input type="text" id="searchInput" placeholder="Enter search keywords..." onkeyup="searchTable()"><br><br>
             <div class="list">
             <br>
         <table style="margin: auto; ">
             <tr>
-                <th>ID</th><th>Type</th><th>Email</th><th>Username</th><th>Password</th><th>Actions</th>
+                <th>ID</th><th>Username</th><th>Email</th><th>Actions</th>
             </tr>
+            {% for user in users %}
             <tr>
-                <td>b8989</td><td>user</td><td>Remove@mail.cpm</td><td>Bllackss88</td><td>ggg889666s</td><td>Remove</td>
+                <td>{{user.id}}</td><td>{{user.username}}</td><td>{{user.email}}</td><td><a href="/users/remove_user/{{user.id}}" class="remove">Remove</a></td>
             </tr>
-            <tr>
-                <td>b8989</td><td>user</td><td>Remove@mail.cpm</td><td>Bllackss88</td><td>ggg889666s</td><td>Remove</td>
-            </tr>
+            {% endfor %}
         </table>
      </div>
-    </div> -->
-    <h3 style="text-align: center;">NO USERS YET</h3>
+     {% with message = get_flashed_messages() %}
+        {% if message %}
+        <p style="color: brown;">{{ message[0] }}</p>
+        {% endif %}
+        {% endwith %}
+        <div class="list">
+    </div> 
 {% endblock %}

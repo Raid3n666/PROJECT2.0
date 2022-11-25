@@ -7,7 +7,7 @@
 <h2 class="arc">Update</h2>
 </header>
 <div class="center">
-    <div class="form">
+    <div class="edit-form">
         <form method="POST">
             <label for="band">Select Band </label>
         <select name="band" id="band">
@@ -40,6 +40,9 @@
         <br><br>
         <label for="price">Enter Price</label>
         <input type="number" name="price" min="0" style="width: 50px;" value="{{ show.price }}">
+        <br><br>
+        <label for="description">Add Description</label><br><br>
+        <textarea name="description" id="description" cols="30" rows="5" required>{{show.description}}</textarea>
         <br><br>
         <input type="submit" value="Update">
     </form>

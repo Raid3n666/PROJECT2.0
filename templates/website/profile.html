@@ -1,0 +1,31 @@
+{% extends '/website/base2.html' %}
+{% block body %}
+    <h2 class="page-title">YOUR PROFILE</h2>
+    <div class="main">
+        <hr>
+        <div class="profile-info">
+            <h2 class="username">{{user.username}}</h2>
+            <img class="profile-pic" src="../../static/images/profile_pictures/{{user.profile_pic}}" alt="">
+            <form action="/change_password/{{user.id}}" method="POST">
+                <h4 style="text-align: center; color: whitesmoke;">Change Password</h4>
+                <input type="password" minlength="6" maxlength="15" id="password" placeholder="Enter Password..." name="password" required>
+                <input type="submit" value="Enter">
+            </form>
+            <form action="/change_profile_pic/{{user.id}}" method="POST" enctype="multipart/form-data">
+                <h4 style="text-align: center; color: whitesmoke;">Set a new profile picture</h4>
+                <input type="file" name="profile_pic" id="image" style="color: white;" accept="image/png, image/jpeg" required>
+                <input type="submit" value="Enter">
+            </form>
+            <p>{{get_flashed_messages()[-1]}}</p>
+        </div>
+        <hr>
+        <div class="starred-shows">
+        <h2 class="your">Your Starred Shows</h2>
+        {% for show in shows %}
+            <a href="/website/show/{{show.id}}" style="text-decoration: none;"><h3 class="starred-show">{{show.band}} At {{show.venue}} <span class="date">{{show.date.strftime('%d/%m/%Y')}}</span></h3></a>
+        {% endfor %}
+        </div>
+        <hr>
+
+{% endblock %}
+ 

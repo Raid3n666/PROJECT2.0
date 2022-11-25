@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METALHEADERS</title>
+    <link rel="stylesheet" href="../../static/website.css">
+    <script src="/static/website.js" defer></script>
+</head>
+<body>
+    <header>
+        <a href="{{url_for('website')}}" id="home"><h1>METALHEADERS</h1></a>
+        {% if not current_user.id %}
+        <div class="login"><a href="{{url_for('login')}}">Login</a></div>
+        {% else %}
+        <div class="login"><a href="{{url_for('logout')}}">Logout</a></div>
+        {% endif %}
+        <div class="register"><a href="{{url_for('register')}}">Register</a></div>
+        {% if current_user.id %}
+            {% if current_user.id == 1 %}
+            <p class="hello">Hello Admin, <a href="{{url_for('index')}}">Go To Admin App</a></p>
+            {% else %}
+            <p class="hello">Hello <a href="{{url_for('profile')}}">{{current_user.username}}</a> !</p>
+            {% endif %}
+        {% endif %}
+    </header>
+    {% block body%}
+ 
+    {% endblock %}
+</body>
+</html>

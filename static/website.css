@@ -1,0 +1,582 @@
+@font-face {
+    font-family: 'Chopin';
+    src: url('./fonts/ChopinScript.ttf');
+}
+@font-face {
+    font-family: 'Kirnah';
+    src: url('./fonts/Krinahpersonal.otf');
+}
+@font-face {
+    font-family: 'Alka';
+    src: url('./fonts/Alkalami-Regular.ttf');
+}
+body {
+    /* font-family:'Times New Roman', Times, serif; */
+    margin : 0;
+    background: rgb(13, 13, 13);
+    font-family: 'Alka';
+    overflow-x: hidden;
+}
+
+p {
+    color: aliceblue;
+}
+header {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: rgb(28, 2, 2);
+    
+    border: 2px solid whitesmoke;
+    /* width: 100%; */
+    text-align: center;
+    font-size: 28px;
+    font-family: 'Kirnah';
+    color: rgb(149, 8, 8);
+    text-shadow: -1px -1px 0 white, 1px -1px 0 rgb(110, 8, 8), -1px 1px 0 rgb(110, 8, 8), 1px 1px 0 white;
+
+
+}
+h2.page-title {
+    text-shadow: -1px -1px 0 rgb(188, 17, 17), 1px -1px 0 rgb(188, 17, 17), -1px 1px 0 rgb(188, 17, 17), 1px 1px 0 rgb(188, 17, 17);
+    color: whitesmoke;
+    text-align: center;
+    font-family: 'Kirnah';
+    font-size: 35px;
+}
+div.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 150px;
+    margin-top: 50px;
+    column-gap: 20px;
+    
+}
+div.show {
+    border: 8px solid rgb(32, 2, 2);
+    border-radius: 5%;
+    width: 400px;
+    height: 350px;
+    margin-bottom: 100px;
+    margin-inline: auto;
+    background-color: rgb(36, 35, 35);
+    background-image: url('../static/images/aHR0cDovL2ltYWdlLmloZWFydC5jb20vaW1hZ2VzL3JvdmkvMTA4MC8wMDAxLzM5MS9NSTAwMDEzOTEzMTkuanBn.webp') ; 
+    background-size: cover;
+    box-shadow: rgba(0, 0, 0, 0.648) 0px 10px 20px;
+}
+
+@media screen and (max-width: 1550px) {
+    div.container{
+        margin: 5px;
+
+    }
+}
+@media screen and (max-width: 1400px) {
+    div.container{
+        grid-template-columns: 1fr 1fr;
+        padding-inline: 100px;
+
+    }
+}
+@media screen and (max-width: 1100px) {
+    div.container{
+        display: block;
+        margin: 5px;
+        padding: 5px;
+
+    }
+    div.show {
+        display: block;
+        width: 400px;
+        margin-bottom: 30px;
+    }
+
+
+}
+@media screen and (max-width: 800px) {
+    div.show {
+        width: 370px;
+        border-bottom: 12px solid rgb(32, 2, 2);;    
+    }
+
+}
+div.buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    top: -20px;
+    
+}
+div.buttons button {
+    color: whitesmoke;
+    background-color: rgb(13, 13, 13);
+    height: 59px;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid black;
+
+
+}
+div.buttons button:hover {
+    border: 3px solid rgb(32, 2, 2);
+    cursor: pointer;
+
+}
+
+img.like {
+    width: 38px;
+    height: 39px;
+    padding: 8px;
+    padding-inline :38%;
+}
+
+img.star {
+    width: 41px;
+    height: 37px;
+    padding: 8px;
+    padding-inline: 38%;
+
+}
+
+img.share {
+    width: 30px;
+    height: 30px;
+    padding: 12px;
+    padding-inline :38%;
+    position: relative;
+    top: 1px;
+    right: 2px;
+}
+
+button.share {
+    filter: grayscale(100%);
+}
+
+button.share:hover {
+    filter: none;
+}
+
+h2.band {
+    text-shadow: -1px -1px 0 rgb(188, 17, 17), 1px -1px 0 rgb(188, 17, 17), -1px 1px 0 rgb(188, 17, 17), 1px 1px 0 rgb(188, 17, 17);
+    text-align: center;
+    color: whitesmoke;
+    background-color: rgba(13, 13, 13, 0.674);
+    position: relative;
+    height: 45px;
+    top: -25px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+h2.band:hover {
+    cursor: pointer;
+}
+
+div.info p {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin-inline: auto;
+    text-align: center;
+    font-weight: 800;
+    font-size: 25px;
+    position: relative;
+    top:-18px;
+}
+div.info:hover {
+    cursor: pointer;
+}
+
+div.content {
+    background: rgb(17, 16, 16);
+    border-radius: 10px;
+    margin-inline: 40px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 3px solid beige;
+}
+div.show-content {
+    background: rgb(17, 16, 16);
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px ;
+    text-align: center;
+    padding: 2px;
+    border: 2px solid beige;
+    
+}
+div.show-content h3, h3 {
+    text-shadow: -1px -1px 0 rgb(188 17 17), 1px -1px 0 rgb(188 17 17), -1px 1px 0 rgb(188 17 17), 1px 1px 0 rgb(188 17 17);
+    color: rgb(60, 2, 2);
+    text-align: center;
+    font-family: 'Kirnah';
+    font-size: 35px;
+}
+div.show-content h4 {
+    text-shadow: -1px -1px 0 rgb(188 17 17), 1px -1px 0 rgb(188 17 17), -1px 1px 0 rgb(188 17 17), 1px 1px 0 rgb(188 17 17);
+    color: whitesmoke;
+    text-align: center;
+    font-size: 35px;
+    margin: 2px;
+}
+div.band-image img {
+    filter: grayscale(100%);
+    max-width: 100%;
+    object-fit: fill;
+    
+    
+}
+div.band-image {
+    overflow: hidden;
+    height: 250px;
+    background-color: rgb(28, 26, 26);
+}
+h3.desc {
+    background: rgb(13, 13, 13);
+    margin: 5px;
+}
+div.descripton {
+    padding: 5px;
+}
+@media screen and (max-width: 1000px) {
+    div.band-image {
+        overflow: hidden;
+        height: 200px;
+    }
+  }
+@media screen and (max-width: 800px) {
+    div.band-image {
+        overflow: hidden;
+        height: 150px;
+    }
+    div.buttons {
+        top: -15px;
+    }
+
+  }
+  @media screen and (max-width: 720px) {
+    div.band-image {
+        overflow: hidden;
+        height: 150px;
+    }
+    div.show-content {
+        margin-inline: 0;
+        border: none;
+    }
+    div.content {
+        margin-inline: 20px;
+    }
+    
+  }
+
+div.comments {
+    /* padding-bottom: 50px; */
+}
+div.comment {
+    display: grid;
+    grid-template-columns: 80px auto 80px;
+    height: fit-content;
+    position: relative;
+    background-color: rgb(28, 26, 26);
+    padding: 10px;
+    padding-left: 0;
+    border: 2px solid beige;
+    border-radius: 5px;
+
+}
+div#username {
+    position: absolute;
+    text-align: left;
+    color: whitesmoke;
+    top: 5px;
+    font-size: smaller;
+
+}
+div#comment {
+    padding: 8px;
+    height: fit-content;
+    width: 100%;
+
+}
+
+p#comment-content {
+    height: fit-content;
+    text-align: initial;
+    line-height: 1.2;
+    margin: 0px;
+    margin-top: 18px;
+    color: whitesmoke;
+    overflow-wrap: break-word;
+}
+/* @media only screen and (max-width: 1350px) {
+    p#comment-content {
+        width: 400px
+    }
+  }
+ @media only screen and (max-width: 1110px) {
+    p#comment-content {
+        width: 350px;
+    }
+}
+@media only screen and (max-width: 950px) {
+    p#comment-content {
+        width: 300px;
+    } 
+}
+@media only screen and (max-width: 910px) {
+    p#comment-content {
+        width: 250px;
+    } 
+    }
+@media only screen and (max-width: 830px) {
+    p#comment-content {
+        width: 200px;
+    } 
+    }
+@media only screen and (max-width: 720px) {
+    p#comment-content {
+        width: 330px;
+    } 
+    }
+@media only screen and (max-width: 580px) {
+    p#comment-content {
+        width: 250px;
+    } 
+    }
+@media only screen and (max-width: 480px) {
+    p#comment-content {
+        width: 200px;
+    } 
+    div.comment {
+        grid-template-columns: 80px 200px 80px;
+    }}
+@media only screen and (max-width: 400px) {
+    p#comment-content {
+        width: 150px;
+    } 
+    }
+@media only screen and (max-width: 350px) {
+    p#comment-content {
+        width: 100px;
+    } 
+    } */
+
+div.comment img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border: 2px solid beige;
+    padding: 2px;
+    margin-inline: auto;
+}
+div.add-comment {
+    padding-left: 10px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    padding-top: 30px;
+}
+div.add-comment img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 2px;
+    border: 2px solid beige;
+    padding: 2px;
+    margin-inline: auto;
+}
+div.add-comment  textarea{
+    width: 80%;
+    min-height: 65px;
+    outline: none;
+    resize: none;
+    border: 1px solid rgb(13, 13, 13);
+    position: relative;
+    right: 8px;
+    background-color: rgb(36, 35, 35);
+    color: whitesmoke;
+}
+input#submit {
+    position: relative;
+    bottom: 30px;
+    right: 5px;
+    height: 70px;
+    border: 2px solid whitesmoke;
+    background-color: rgb(16, 16, 17);
+    color: whitesmoke;
+}
+input#submit:hover {
+    border: 2px solid rgb(78, 0, 0);
+    color: rgb(78, 0, 0); 
+    cursor: pointer;
+}
+input#submit:disabled {
+    border: 2px solid rgb(65, 65, 65);
+    background-color: rgb(16, 16, 17);
+    color: rgb(65, 65, 65);
+    cursor: auto;
+}
+div.add-comment  form{
+    width: 100%;
+}
+@media screen and (min-width: 1300px) {
+    div.add-comment  textarea{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 780px) {
+    div.add-comment  textarea{
+        width: 70%;
+    }
+    
+}
+button.like {
+    position: relative;
+    /* bottom: 4.5px; */
+    height: 80px;
+    margin: 5px;
+    margin-left: 15px;
+    background: rgb(36, 35, 35);
+    border: 1px solid beige;
+
+}
+
+button.like:hover {
+    cursor: pointer;
+}
+
+button.like span{
+    color: grey;
+    
+}
+
+button.like img.heart {
+    height: 30px;
+    width:  30px;
+    border: none;
+    position: relative;
+    
+}
+div#register, div#login {
+    margin: auto;
+    border: 3px solid beige;
+    width: 50%;
+    padding: 20px;
+}
+
+div#form {
+    width: 50%;
+    margin: auto;
+}
+
+a#home {
+    text-decoration: none;
+}
+
+a#home:visited {
+    color: rgb(149, 8, 8);
+    text-shadow: -1px -1px 0 white, 1px -1px 0 rgb(110, 8, 8), -1px 1px 0 rgb(110, 8, 8), 1px 1px 0 white;
+}
+
+div.register a, div.login a {
+    color: aliceblue;
+    text-shadow: none;
+    float: right;
+    position: relative;
+    display: inline;
+    bottom: 125px;
+    right: 5px;
+    margin-inline: 10px;
+}
+
+p.hello {
+    text-align: center;
+    font-family: sans-serif;
+    margin: 0;
+    text-shadow: none;
+    position: relative;
+    font-size: 20px;
+    left: 94px;
+    color: rgb(77, 75, 75);
+    bottom: 8px;
+}
+
+@media screen and (max-width: 920px) {
+    div#login {
+        width: 80%;
+    }
+    div#register {
+        width: 80%;
+    }
+    div.register{
+        float: left;
+        font-size: smaller;
+    }
+    div.login{
+        font-size: smaller;
+    }
+    p.hello {
+        left: auto;
+    }
+}
+
+img.profile-pic {
+    width: 80px;
+    height: 75px;
+    margin-inline: 135px;
+}
+
+h2.username, h2.your {
+    text-shadow: -1px -1px 0 rgb(188 17 17), 1px -1px 0 rgb(188 17 17), -1px 1px 0 rgb(188 17 17), 1px 1px 0 rgb(188 17 17);
+    color: rgb(60, 2, 2);
+    font-family: 'Alka';
+    margin-bottom: 5px ;
+    text-align: center;
+}
+h2.your {
+    color: rgb(184, 184, 7);
+    margin: 0;
+    text-decoration: underline;
+}
+
+div.profile-info {
+    position: relative;
+    width: min-content;
+    height: min-content;
+    margin: auto;
+}
+
+div.starred-shows {
+    width: max-content;
+    margin: auto;
+    border: 2px solid whitesmoke;
+    padding: 15px;
+    padding-inline: 0;
+}
+
+h3.starred-show {
+    font-size: 4vw;
+    font-family: 'Alka'
+}
+@media screen and (min-width: 800px) {
+    h3.starred-show {
+        font-size: 30px;
+    }
+  }
+
+div.search-form {
+    margin: auto;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+form.search-form {
+    width: max-content;
+    margin: auto;
+}
+
+form.search-form input {
+    color: rgb(149, 8, 8);
+    background-color: #282424;
+    border: 2px solid rgb(149, 8, 8);
+    border-radius: 5px;
+}
+
+form.search-form input:disabled {
+    border: 2px solid #282424;
+    color: #000;
+}

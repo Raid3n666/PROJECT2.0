@@ -8,10 +8,13 @@
 <h2 class="arc">Add to Archive</h2>
 </header>
 <div class="center">
+    <input type="text" id="searchInput" placeholder="Enter search keywords..." onkeyup="searchTable()"><br><br>
+    <button onclick="showFormBlock()" class="add-form">Add New Band</button>
     <div class="form">
+        <button class="close" onclick="closeForm()">X</button>
         <form method="POST" enctype="multipart/form-data">
         <label for="band">Enter band name</label>
-        <input type="text" name="band" style="margin: 10px;">
+        <input type="text" name="band" style="margin: 10px;" required>
         <br><br>
         <span> * </span><label class="custom-file-upload">
             <input type="file" accept="image/png, image/jpeg, image/webp" name="image"/>
@@ -20,12 +23,12 @@
         <br><br><br>
         <input type="submit" value="Add">
     </form>
+    </div>
     {% with message = get_flashed_messages() %}
     {% if message %}
     <p style="color: brown;">{{ message[0] }}</p>
     {% endif %}
-  {% endwith %}
-    </div>
+    {% endwith %}
         <div class="list">
         <br>
     <table style="margin: auto; ">
@@ -33,13 +36,13 @@
             <th>ID</th><th>Name</th><th>Images</th><th>Actions</th>
         </tr>
         {% for band in bands %}
-        {% if band.img != 'None' %}
+        {% if band.img != None %}
         <tr>
-            <td>{{ band.id }}</td><td>{{ band.name }}</td><td><a href="static\images\{{ band.img }}">File</a></td><td><a href="bands/remove={{ band.name }}">Remove</a> / <a href="/bands/add_image={{ band.id }}">Update Image</a></td>
+            <td>{{ band.id }}</td><td>{{ band.name }}</td><td><a href="static\images\{{ band.img }}">File</a></td><td><a href="bands/remove={{ band.id }}">Remove</a> / <a href="/add_image/{{ band.id }}">Update Image</a></td>
         </tr>
         {% else %}
         <tr>
-            <td>{{ band.id }}</td><td>{{ band.name }}</td><td>None</td><td><a href="bands/remove={{ band.name }}">Remove</a> / <a href="/bands/add_image={{ band.id }}">Add Image</a></td>
+            <td>{{ band.id }}</td><td>{{ band.name }}</td><td>None</td><td><a href="bands/remove={{ band.id }}">Remove</a> / <a href="/add_image/{{ band.id }}">Add Image</a></td>
         </tr>
         {% endif %}
         {% endfor %}

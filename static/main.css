@@ -76,20 +76,21 @@ a:hover {
     color: red;
 }
 
-input[type = submit] {
+input[type = submit], button.add-form {
     background-color: rgb(22, 21, 21);
     padding: 6px 15px;
     border: 1px solid;
     color: white;
     cursor: pointer;
  }
- input[type = submit]:hover {
+ input[type = submit]:hover, button.add-form:hover {
     color: brown;
 
  }
  input[type="file"] {
     display: none;
 }
+
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
@@ -132,3 +133,27 @@ li {
     background-color: rgba(53, 0, 40, 0.436);
     font-style: italic;
   }
+
+  div.form {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #050327f1;
+    border: 2px solid beige;
+    padding: 10px;
+    padding-top: 20px;
+  }
+
+  button.close {
+    background-color: brown;
+    float: right;
+    color: whitesmoke;
+  }
+
+  button.close:hover {
+    background-color: rgb(125, 31, 31);
+    cursor: pointer;
+  }
+
