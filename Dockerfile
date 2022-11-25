@@ -2,12 +2,7 @@ FROM python:slim
 
 WORKDIR /app
 
-COPY app.py .
-COPY templates /app/
-COPY static /app/
-COPY modules /app/
-COPY db /app/
-COPY requirements.txt /app/
+COPY . .
 
 RUN pip install -r requirements.txt
 
