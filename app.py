@@ -616,4 +616,4 @@ if __name__ == '__main__':
     api.add_resource(AllStars, '/api/stars')
     api.add_resource(Comment, '/api/comment/<int:show_id>')
     api.add_resource(LikeComment, '/api/likecomment/<int:comment_id>')
-    app.run(debug= True, host= '0.0.0.0', port = int(os.environ.get('PORT', 5000)))
+    # app.run(debug= True, host= '0.0.0.0', port = int(os.environ.get('PORT', 5000)))
