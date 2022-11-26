@@ -455,7 +455,7 @@ def register():
         user.password = hashed_password
         if image.filename != '':
             user.profile_pic = image.filename
-            image.save(os.path.join(f"{app.config['UPLOAD_FOLDER']}\\profile_pictures", image.filename))
+            image.save(os.path.join(f"{app.config['UPLOAD_FOLDER']}/profile_pictures", image.filename))
         else:
             user.profile_pic = 'default.png'
         db.session.add(user)
@@ -485,14 +485,14 @@ def change_profile_pic(user_id):
     image = request.files['profile_pic']
     if user.profile_pic == 'default.png':
         user.profile_pic = image.filename
-        image.save(os.path.join(f"{app.config['UPLOAD_FOLDER']}\\profile_pictures", image.filename))
+        image.save(os.path.join(f"{app.config['UPLOAD_FOLDER']}/profile_pictures", image.filename))
     else:
         try:
-            os.remove(f'{app.config["UPLOAD_FOLDER"]}//profile_pictures//{user.profile_pic}')
+            os.remove(f'{app.config["UPLOAD_FOLDER"]}/profile_pictures/{user.profile_pic}')
         except:
             pass
         user.profile_pic = image.filename
-        image.save(os.path.join(f"{app.config['UPLOAD_FOLDER']}\\profile_pictures", image.filename))
+        image.save(os.path.join(f"{app.config['UPLOAD_FOLDER']}/profile_pictures", image.filename))
     comments = Comments.query.filter_by(user_id = user_id)
     for comment in comments:
         comment.profile_picture = user.profile_pic
