@@ -605,15 +605,16 @@ class LikeComment(Resource):
             db.session.commit()
 
 #######################################################
-        
+db.create_all()
+api.add_resource(Allshows, '/api/shows')
+api.add_resource(Allbands, '/api/bands')
+api.add_resource(AddLikes, '/api/like/<int:show_id>')
+api.add_resource(AllLikes, '/api/likes')
+api.add_resource(AddStars, '/api/star/<int:show_id>')
+api.add_resource(AllStars, '/api/stars')
+api.add_resource(Comment, '/api/comment/<int:show_id>')
+api.add_resource(LikeComment, '/api/likecomment/<int:comment_id>')
+
 if __name__ == '__main__':
-    db.create_all()
-    api.add_resource(Allshows, '/api/shows')
-    api.add_resource(Allbands, '/api/bands')
-    api.add_resource(AddLikes, '/api/like/<int:show_id>')
-    api.add_resource(AllLikes, '/api/likes')
-    api.add_resource(AddStars, '/api/star/<int:show_id>')
-    api.add_resource(AllStars, '/api/stars')
-    api.add_resource(Comment, '/api/comment/<int:show_id>')
-    api.add_resource(LikeComment, '/api/likecomment/<int:comment_id>')
-    # app.run(debug= True, host= '0.0.0.0', port = int(os.environ.get('PORT', 5000)))
+
+    app.run(debug= True, host= '0.0.0.0', port = int(os.environ.get('PORT', 5000)))
